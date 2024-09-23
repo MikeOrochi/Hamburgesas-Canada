@@ -13,7 +13,9 @@
   <style>
     html,
     body {
-      position: relative;
+      /*position: relative;*/
+      display: flex;
+      flex-direction: column;
       height: 100%;
     }
 
@@ -29,6 +31,10 @@
       padding: 0;
     }
 
+    a {
+      text-decoration: none;
+    }
+
 
     #Carrusel {
       width: 100%;
@@ -39,21 +45,22 @@
     }
 
     .header {
-      position: fixed;
+      /*position: fixed;
       left: 0;
       top: 0;
+      */
+      color: #ffb828;
       width: 100%;
-      color: white;
       text-align: center;
       background: linear-gradient(68deg, #000000, #373737);
     }
 
     .footer {
-      position: fixed;
+      /*position: fixed;
       left: 0;
-      bottom: 0;
+      bottom: 0;*/
+      color: #ffb828;
       width: 100%;
-      color: white;
       text-align: center;
       background: linear-gradient(68deg, #000000, #373737);
     }
@@ -81,7 +88,7 @@
 
     .fa-instagram {
       background: #833ab4;
-      background: linear-gradient(to right,
+      background: linear-gradient(to bottom,
           #833ab4, #fd1d1d, #fcb045)
     }
 
@@ -89,15 +96,57 @@
       background: #4285F4;
     }
 
-    .swiper {
-      width: 240px;
-      height: 320px;
-      position: fixed;
+
+    @media (max-width: 1690px) {
+      .swiper {
+        width: calc(904px /2);
+      }
     }
 
+    @media (min-width: 1280px)and (max-width: 1689px) {
+      .swiper {
+        width: calc(904px / 2.5);
+      }
+    }
+
+    @media (min-width: 737px)and (max-width: 1279px) {
+      .swiper {
+        width: calc(904px / 2.5);
+      }
+    }
+
+    @media (min-width: 481px)and (max-width: 736px) {
+      .swiper {
+        width: calc(904px / 3);
+      }
+    }
+
+    @media(max-width: 480px) {
+      .swiper {
+        width: calc(904px / 4);
+      }
+    }
+
+    .swiper,
+    .swiper-slide {
+      /*width: 50% ;
+      max-width: 300px;*/
+    }
+
+    .swiper {
+      /*height: auto; 
+      max-height: 50%;*/
+      position: fixed;
+
+
+    }
+
+
+
     .imagenMenu {
-      width: 240px;
-      height: 320px;
+      width: 100%;
+      height: 100%;
+      /*object-fit: cover;*/
     }
 
     .swiper-slide {
@@ -192,18 +241,27 @@
       }
     }
 
-    #mostrarTouch{
+    #mostrarTouch {
       position: fixed;
       top: 50%;
       left: 50%;
       z-index: 10;
     }
 
-    .fa-hand-pointer {  
+    .fa-hand-pointer {
       color: white;
       box-shadow: 0 0 0 0 rgba(0, 0, 0, 1);
       transform: scale(1);
       animation: pulse 2s infinite;
+    }
+
+    .sin_inicializar {
+      opacity: 0;
+      transition: opacity 2s ease;
+    }
+
+    .inicializado {
+      opacity: 1;
     }
 
     #mostrarTouch {
@@ -272,39 +330,43 @@
   </div>
 
   <div id="Carrusel">
-    <div class="swiper mySwiper swiper-cards swiper-3d swiper-initialized swiper-horizontal swiper-watch-progress">
-      <div class="swiper-wrapper" id="swiper-wrapper-13dee33d6fcdc6e7" aria-live="polite" style="cursor: grab;">
+    <div class="swiper swiper-cards swiper-3d swiper-initialized swiper-horizontal swiper-watch-progress"
+      id="SwiperCards">
+      <div class="swiper-wrapper" aria-live="polite" style="cursor: grab;">
+
+
         <div class="swiper-slide swiper-slide-visible swiper-slide-fully-visible swiper-slide-active" role="group"
-          aria-label="1 / 9"
-          style="width: 240px; z-index: 9; transform: translate3d(0px, 0px, 0px) rotateZ(0deg) scale(1);">
+          aria-label="1 / 6" style="z-index: 9;">
           <img src="1.jpeg" class="imagenMenu" alt="">
           <div class="swiper-slide-shadow swiper-slide-shadow-cards" style="opacity: 0;"></div>
         </div>
-        <div class="swiper-slide swiper-slide-next" role="group" aria-label="2 / 9"
-          style="width: 240px; z-index: 8; transform: translate3d(calc(7.25% - 240px), 0px, -100px) rotateZ(2deg) scale(1);">
+
+        <div class="swiper-slide swiper-slide-next sin_inicializar" role="group" aria-label="2 / 6" style="z-index: 8;">
           <img src="2.jpeg" class="imagenMenu" alt="">
           <div class="swiper-slide-shadow swiper-slide-shadow-cards" style="opacity: 1;"></div>
         </div>
-        <div class="swiper-slide" role="group" aria-label="3 / 9"
-          style="width: 240px; z-index: 7; transform: translate3d(calc(13% - 480px), 0px, -200px) rotateZ(4deg) scale(1);">
+
+        <div class="swiper-slide sin_inicializar" role="group" aria-label="3 / 6" style="z-index: 7;">
           <img src="3.jpeg" class="imagenMenu" alt="">
           <div class="swiper-slide-shadow swiper-slide-shadow-cards" style="opacity: 1;"></div>
         </div>
-        <div class="swiper-slide" role="group" aria-label="4 / 9"
-          style="width: 240px; z-index: 6; transform: translate3d(calc(17.25% - 720px), 0px, -300px) rotateZ(6deg) scale(1);">
+
+        <div class="swiper-slide sin_inicializar" role="group" aria-label="4 / 6" style="z-index: 6;">
           <img src="4.jpeg" class="imagenMenu" alt="">
           <div class="swiper-slide-shadow swiper-slide-shadow-cards" style="opacity: 1;"></div>
         </div>
-        <div class="swiper-slide" role="group" aria-label="5 / 9"
-          style="width: 240px; z-index: 5; transform: translate3d(calc(20% - 960px), 0px, -400px) rotateZ(8deg) scale(1);">
+
+        <div class="swiper-slide sin_inicializar" role="group" aria-label="5 / 6" style="z-index: 5;">
           <img src="5.jpeg" class="imagenMenu" alt="">
           <div class="swiper-slide-shadow swiper-slide-shadow-cards" style="opacity: 1;"></div>
         </div>
-        <div class="swiper-slide" role="group" aria-label="6 / 9"
-          style="width: 240px; z-index: 4; transform: translate3d(calc(20% - 1200px), 0px, -400px) rotateZ(8deg) scale(1);">
+
+        <div class="swiper-slide sin_inicializar" role="group" aria-label="6 / 6" style="z-index: 4;">
           <img src="6.jpeg" class="imagenMenu" alt="">
           <div class="swiper-slide-shadow swiper-slide-shadow-cards" style="opacity: 1;"></div>
         </div>
+
+
       </div>
       <span class="swiper-notification" aria-live="assertive" aria-atomic="true"></span>
     </div>
@@ -353,10 +415,26 @@
 
   <script>
 
-    var swiper = new Swiper(".mySwiper", {
-      effect: "cards",
-      grabCursor: true
+    var HTML_Carrusel = document.getElementById('Carrusel').innerHTML;
+    var swiper = new Swiper("#SwiperCards", {
+      effect: "cards", // coverflow, flip , cards
+      grabCursor: true,
+      on: {
+        init: () => {
+          document.querySelectorAll('.sin_inicializar').forEach(element => {
+            element.classList.add('inicializado');
+          });
+        }
+      }
     });
+
+    /*swiper.destroy(true,true)
+    var swiper = new Swiper("#SwiperCards", {
+      effect: "coverflow", // coverflow, flip , cards
+      observer: true,
+      observeParents:true
+    });*/
+
 
 
 
@@ -385,7 +463,7 @@
     }
 
     var Celular = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
-    if(!Celular){
+    if (!Celular) {
       document.getElementById("LinkFacebook").href = 'https://www.facebook.com/hamburguesas.canada';
     }
 
