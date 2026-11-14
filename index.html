@@ -443,32 +443,32 @@
 
         <div class="swiper-slide swiper-slide-visible swiper-slide-fully-visible swiper-slide-active" role="group"
           aria-label="1 / 6" style="z-index: 9;">
-          <img src="1.jpeg" class="imagenMenu" >
+          <img src="1.jpeg" class="imagenMenu">
           <div class="swiper-slide-shadow swiper-slide-shadow-cards" style="opacity: 0;"></div>
         </div>
 
         <div class="swiper-slide swiper-slide-next sin_inicializar" role="group" aria-label="2 / 6" style="z-index: 8;">
-          <img src="2.jpeg" class="imagenMenu" >
+          <img src="2.jpeg" class="imagenMenu">
           <div class="swiper-slide-shadow swiper-slide-shadow-cards" style="opacity: 1;"></div>
         </div>
 
         <div class="swiper-slide sin_inicializar" role="group" aria-label="3 / 6" style="z-index: 7;">
-          <img src="3.jpeg" class="imagenMenu" >
+          <img src="3.jpeg" class="imagenMenu">
           <div class="swiper-slide-shadow swiper-slide-shadow-cards" style="opacity: 1;"></div>
         </div>
 
         <div class="swiper-slide sin_inicializar" role="group" aria-label="4 / 6" style="z-index: 6;">
-          <img src="4.jpeg" class="imagenMenu" >
+          <img src="4.jpeg" class="imagenMenu">
           <div class="swiper-slide-shadow swiper-slide-shadow-cards" style="opacity: 1;"></div>
         </div>
 
         <div class="swiper-slide sin_inicializar" role="group" aria-label="5 / 6" style="z-index: 5;">
-          <img src="5.jpeg" class="imagenMenu" >
+          <img src="5.jpeg" class="imagenMenu">
           <div class="swiper-slide-shadow swiper-slide-shadow-cards" style="opacity: 1;"></div>
         </div>
 
         <div class="swiper-slide sin_inicializar" role="group" aria-label="6 / 6" style="z-index: 4;">
-          <img src="6.jpeg" class="imagenMenu" >
+          <img src="6.jpeg" class="imagenMenu">
           <div class="swiper-slide-shadow swiper-slide-shadow-cards" style="opacity: 1;"></div>
         </div>
 
@@ -515,8 +515,10 @@
   </div>
 
 
-
+  <script src="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.js"></script>
+  <!--
   <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  -->
   <script src="https://kit.fontawesome.com/ccfde869ca.js" crossorigin="anonymous"></script>
 
   <script>
@@ -525,7 +527,7 @@
     var finalizacion_carga = false;
 
     var swiper = new Swiper("#SwiperCards", {
-      effect: "cards", // coverflow, flip , cards
+      effect: "coverflow", // coverflow, flip , cards
       grabCursor: true,
       on: {
         init: () => {
@@ -534,7 +536,22 @@
           });
 
           finalizacion_carga = true;
+        },
+
+        click: function (swiper, event) {
+          const clickedSlide = swiper.clickedSlide;
+
+          // Get the index of the clicked slide
+          const clickedIndex = swiper.clickedIndex;
+
+          if (clickedSlide) {
+
+            modal.style.display = "block";
+            modalImg.src = clickedSlide.childNodes[1].src;
+            captionText.innerHTML = clickedSlide.childNodes[1].alt;
+          }
         }
+
       }
     });
 
@@ -554,11 +571,14 @@
 
     function abrirModal(imagen) {
 
+      console.log(imagen)
 
+      /*
       modal.style.display = "block";
       modalImg.src = imagen.src;
       captionText.innerHTML = imagen.alt;
-      
+      */
+
     }
 
 
@@ -613,8 +633,10 @@
                   const clickedIndex = swiper.clickedIndex;
 
                   if (clickedSlide) {
-                    console.log('Clicked slide element:', clickedSlide);
-                    console.log('Clicked slide index:', clickedIndex);
+
+                    modal.style.display = "block";
+                    modalImg.src = clickedSlide.childNodes[1].src;
+                    captionText.innerHTML = clickedSlide.childNodes[1].alt;
                   }
                 }
               }
