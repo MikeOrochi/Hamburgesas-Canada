@@ -400,32 +400,32 @@
 
         <div class="swiper-slide swiper-slide-visible swiper-slide-fully-visible swiper-slide-active" role="group"
           aria-label="1 / 6" style="z-index: 9;">
-          <img src="1.jpeg" class="imagenMenu" >
+          <img src="1.jpeg" class="imagenMenu" onclick="abrirModal(this)">
           <div class="swiper-slide-shadow swiper-slide-shadow-cards" style="opacity: 0;"></div>
         </div>
 
         <div class="swiper-slide swiper-slide-next sin_inicializar" role="group" aria-label="2 / 6" style="z-index: 8;">
-          <img src="2.jpeg" class="imagenMenu" >
+          <img src="2.jpeg" class="imagenMenu" onclick="abrirModal(this)">
           <div class="swiper-slide-shadow swiper-slide-shadow-cards" style="opacity: 1;"></div>
         </div>
 
         <div class="swiper-slide sin_inicializar" role="group" aria-label="3 / 6" style="z-index: 7;">
-          <img src="3.jpeg" class="imagenMenu" >
+          <img src="3.jpeg" class="imagenMenu" onclick="abrirModal(this)">
           <div class="swiper-slide-shadow swiper-slide-shadow-cards" style="opacity: 1;"></div>
         </div>
 
         <div class="swiper-slide sin_inicializar" role="group" aria-label="4 / 6" style="z-index: 6;">
-          <img src="4.jpeg" class="imagenMenu" >
+          <img src="4.jpeg" class="imagenMenu" onclick="abrirModal(this)">
           <div class="swiper-slide-shadow swiper-slide-shadow-cards" style="opacity: 1;"></div>
         </div>
 
         <div class="swiper-slide sin_inicializar" role="group" aria-label="5 / 6" style="z-index: 5;">
-          <img src="5.jpeg" class="imagenMenu" >
+          <img src="5.jpeg" class="imagenMenu" onclick="abrirModal(this)">
           <div class="swiper-slide-shadow swiper-slide-shadow-cards" style="opacity: 1;"></div>
         </div>
 
         <div class="swiper-slide sin_inicializar" role="group" aria-label="6 / 6" style="z-index: 4;">
-          <img src="6.jpeg" class="imagenMenu" >
+          <img src="6.jpeg" class="imagenMenu" onclick="abrirModal(this)">
           <div class="swiper-slide-shadow swiper-slide-shadow-cards" style="opacity: 1;"></div>
         </div>
 
@@ -553,11 +553,11 @@
     var numero = 1;
 
     function abrirModal(imagen) {
-      console.log(imagen);
-      
+
+
       modal.style.display = "block";
-      modalImg.src = this.src;
-      captionText.innerHTML = this.alt;
+      modalImg.src = imagen.src;
+      captionText.innerHTML = imagen.alt;
       
     }
 
